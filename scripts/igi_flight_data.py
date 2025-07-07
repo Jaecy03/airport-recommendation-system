@@ -3,16 +3,13 @@ import csv
 import os
 from datetime import datetime
 
-# Get API key from environment variable for security
 API_KEY = os.getenv('AVIATION_STACK_API_KEY', 'your_api_key_here')
 API_URL = 'http://api.aviationstack.com/v1/flights'
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
 
-# List of Indian domestic IATA airport codes
 domestic_airports = ['BOM', 'BLR', 'HYD', 'MAA', 'CCU', 'PNQ', 'GOI', 'AMD', 'SXR',
                      'IXC', 'IXJ', 'LKO', 'PAT', 'BHU', 'NAG', 'RAJ', 'DEL']
 
-# Save CSV
 def save_to_csv(flights, filename):
     if not flights:
         print(f"⚠️ No data for {filename}")
