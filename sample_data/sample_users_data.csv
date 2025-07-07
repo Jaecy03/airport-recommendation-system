@@ -1,0 +1,6 @@
+user_id,age,gender,socio_economic,preferences,loyalty,city,nationality
+1,19,Male,'Low',"Food,Lounge,Gadgets",Silver,West Kurtburgh,Monaco
+2,28,Female,'Medium',"Lounge,Gadgets,Shopping",None,Port Diana,Italy
+3,39,Other,'Low',"Coffee,Gadgets,Lounge",Silver,Grahamfurt,Yemen
+4,54,Other,'High',"Shopping,Gadgets,Lounge",Silver,Bullockfort,Burundi
+5,65,Male,'Medium',"Shopping,Lounge,Coffee",Silver,Hansonshire,Nepal

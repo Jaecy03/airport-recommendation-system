@@ -99,7 +99,7 @@ coverage.xml
 
 # Large CSV files (keep sample data only)
 *.csv
-!Data/sample_*.csv
+!sample_data/sample_*.csv
 
 # Pickle files (preprocessed data)
 *.pkl

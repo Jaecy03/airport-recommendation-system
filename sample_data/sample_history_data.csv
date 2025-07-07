@@ -1,0 +1,6 @@
+user_id,category,amount_spent,terminal,time_before_boarding
+1,'Lounge',8044,T1,05:47:58
+2,'Shopping',5433,T1,09:44:55
+3,'Food',2771,T1,17:09:12
+4,'Coffee',12993,T2,01:09:31
+5,'Lounge',6653,T2,15:05:01
