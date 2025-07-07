@@ -12,7 +12,7 @@ domestic_airports = ['BOM', 'BLR', 'HYD', 'MAA', 'CCU', 'PNQ', 'GOI', 'AMD', 'SX
 
 def save_to_csv(flights, filename):
     if not flights:
-        print(f"⚠️ No data for {filename}")
+        print(f"No data for {filename}")
         return
 
     with open(filename, 'w', newline='', encoding='utf-8') as f:
