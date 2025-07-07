@@ -14,10 +14,14 @@ This project implements an end-to-end data pipeline that:
 
 ```
 airport-recommendation-system/
-├── Data/                          # Static datasets
+├── Data/                          # Static datasets (not included in repo)
 │   ├── history_data.csv          # User purchase history at airport
 │   ├── user_gps_data.csv         # User location tracking data
 │   └── users_data.csv            # User demographic and preference data
+├── sample_data/                   # Sample data files showing structure
+│   ├── sample_history_data.csv   # Sample purchase history data
+│   ├── sample_user_gps_data.csv  # Sample GPS tracking data
+│   └── sample_users_data.csv     # Sample user demographic data
 ├── scripts/                       # Core processing scripts
 │   ├── igi_flight_data.py        # Flight data fetching from Aviation Stack API
 │   ├── ingest_flights.py         # Data ingestion and processing pipeline
@@ -110,7 +114,12 @@ airport-recommendation-system/
 
 5. **Setup Database (Optional)**
    - Install PostgreSQL
-   - Update database URL in `scripts/ingest_flights.py`
+   - Update database URL in `.env` file
+
+6. **Prepare Data**
+   - The `sample_data/` directory contains sample files showing the expected data structure
+   - Place your full datasets in the `Data/` directory following the same structure
+   - Or use the provided sample data for testing
 
 ## 🚀 Usage
 
