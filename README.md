@@ -181,8 +181,3 @@ The interactive dashboard provides:
 - [Streamlit](https://streamlit.io/) for dashboard framework
 - [Pandas](https://pandas.pydata.org/) for data processing
 
-## 📞 Contact
-
-**Jahnavi Sharma** - [GitHub](https://github.com/Jaecy03)
-
-Project Link: [https://github.com/Jaecy03/airport-recommendation-system](https://github.com/Jaecy03/airport-recommendation-system)
