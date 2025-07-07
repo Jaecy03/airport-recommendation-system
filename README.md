@@ -2,7 +2,7 @@
 
 A comprehensive data pipeline and analytics system for airport flight data, designed to process real-time flight information and provide insights through interactive dashboards.
 
-## 🚀 Project Overview
+## Project Overview
 
 This project implements an end-to-end data pipeline that:
 - Fetches real-time flight data from Aviation Stack API
@@ -10,7 +10,7 @@ This project implements an end-to-end data pipeline that:
 - Provides interactive analytics dashboard
 - Supports both domestic and international flight tracking for Delhi (IGI) airport
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 airport-recommendation-system/
@@ -34,7 +34,7 @@ airport-recommendation-system/
 └── requirements.txt               # Python dependencies
 ```
 
-## 🛠 Features
+## Features
 
 ### Data Collection
 - **Real-time Flight Data**: Fetches live flight information using Aviation Stack API
@@ -57,7 +57,7 @@ airport-recommendation-system/
 - **Performance Metrics**: Delay analysis, airline performance, route popularity
 - **Responsive Design**: Web-based dashboard using Streamlit
 
-## 📊 Data Sources
+## Data Sources
 
 ### Static Data
 1. **Users Data** (100K+ records)
@@ -81,7 +81,7 @@ airport-recommendation-system/
 - **Route Coverage**: 17+ domestic airports across India
 - **Data Points**: Flight status, delays, airline info, schedules
 
-## 🔧 Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 - Python 3.8+
@@ -121,7 +121,7 @@ airport-recommendation-system/
    - Place your full datasets in the `Data/` directory following the same structure
    - Or use the provided sample data for testing
 
-## 🚀 Usage
+## Usage
 
 ### Data Collection
 ```bash
@@ -144,7 +144,7 @@ python scripts/preprocess.py
 streamlit run scripts/dashboard.py
 ```
 
-## 📈 Dashboard Features
+## Dashboard Features
 
 The interactive dashboard provides:
 - **Flight Statistics**: Total flights, delays, on-time performance
@@ -153,21 +153,21 @@ The interactive dashboard provides:
 - **Time-based Trends**: Peak hours and seasonal patterns
 - **Real-time Updates**: Latest flight status and delays
 
-## 🔄 Data Pipeline Workflow
+## Data Pipeline Workflow
 
 1. **Data Fetching**: `igi_flight_data.py` collects raw flight data from API
 2. **Data Ingestion**: `ingest_flights.py` processes and consolidates data
 3. **Data Cleaning**: `preprocess.py` cleans and validates all datasets
 4. **Visualization**: `dashboard.py` provides interactive analytics
 
-## 📝 Logging & Monitoring
+## Logging & Monitoring
 
 - Comprehensive logging system with file and console output
 - Performance timing for all major operations
 - Error handling and data validation
 - Automated log rotation and management
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
@@ -175,11 +175,7 @@ The interactive dashboard provides:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Aviation Stack API](https://aviationstack.com/) for flight data
 - [Streamlit](https://streamlit.io/) for dashboard framework
