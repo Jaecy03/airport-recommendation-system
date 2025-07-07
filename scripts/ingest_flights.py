@@ -8,8 +8,6 @@ from sqlalchemy import create_engine
 from concurrent.futures import ThreadPoolExecutor
 import time
 
-# ─── Configuration ─────────────────────────────────────────────────────────────
-# Get API key from environment variable for security
 API_KEY = os.getenv('AVIATION_STACK_API_KEY', 'your_api_key_here')
 today = datetime.now().strftime('%Y-%m-%d')
 
@@ -25,11 +23,8 @@ files = [
     ('international_to_delhi', 'international_arrival')
 ]
 
-# Database configuration - use environment variables for security
 db_url = os.getenv('DATABASE_URL', "postgresql+psycopg2://username:password@localhost:5432/airport_db")
 table_name = "flights"
-
-# ─── Logging Setup ─────────────────────────────────────────────────────────────
 os.makedirs("logs", exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
@@ -39,8 +34,6 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
-
-# ─── Timing Decorator ──────────────────────────────────────────────────────────
 def log_time(func):
     def wrapper(*args, **kwargs):
         start = time.time()
@@ -50,8 +43,6 @@ def log_time(func):
         logging.info(f"Completed: {func.__name__} in {end} seconds\n")
         return result
     return wrapper
-
-# ─── API Fetching ──────────────────────────────────────────────────────────────
 @log_time
 def fetch_flights_from_api(flight_type):
     base_url = 'http://api.aviationstack.com/v1/flights'
@@ -92,7 +83,6 @@ def fetch_flights_from_api(flight_type):
     df.to_csv(out_path, index=False)
     logging.info(f"Saved {len(df)} records to {out_path}")
 
-# ─── File Ingestion ────────────────────────────────────────────────────────────
 @log_time
 def daily_ingestion():
     all_data = []
@@ -114,7 +104,6 @@ def daily_ingestion():
     else:
         logging.warning("No input files found for today's ingestion.")
 
-# ─── Thread-Safe DB Loader ─────────────────────────────────────────────────────
 def load_chunk_to_postgres(chunk_df, engine):
     try:
         with engine.begin() as conn:
@@ -142,7 +131,6 @@ def load_to_postgres(csv_file, db_url):
 
     logging.info(f"[✓] Loaded {len(df)} rows to PostgreSQL table '{table_name}'.")
 
-# ─── Optional Lookup ───────────────────────────────────────────────────────────
 def lookup_flight(flight_number):
     all_data = []
     for name, ftype in files:
@@ -174,21 +162,16 @@ def lookup_flight(flight_number):
             "status": f"Delayed by {int(row['delay'])} mins" if pd.notna(row['delay']) and row['delay'] > 0 else "On Time"
         } for _, row in result.iterrows()]
     }
-
-# ─── Main Execution ────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    # Step 1: Parallel API fetch
+
     with ThreadPoolExecutor(max_workers=4) as executor:
         executor.map(lambda x: fetch_flights_from_api(x[0]), files)
 
-    # Step 2: Combine today's data
     daily_ingestion()
 
-    # Step 3: Load to PostgreSQL with chunked, threaded load
     csv_path = os.path.join(processed_dir, f'all_flights_{today}.csv')
     load_to_postgres(csv_path, db_url)
 
-    # Step 4: Optional flight lookup
     if input("Do you want to look up a flight? (y/n): ").strip().lower() == 'y':
         flight_no = input("Enter flight number (e.g., AI302): ").strip().upper()
         print(lookup_flight(flight_no))
